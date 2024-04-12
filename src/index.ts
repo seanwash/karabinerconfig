@@ -1,7 +1,9 @@
 import {
     FromModifiers,
+    hyperLayer,
     map,
     rule,
+    toApp,
     writeToProfile,
 } from 'karabiner.ts'
 
@@ -14,6 +16,18 @@ writeToProfile('seanwashbot', [
     rule('caps_lock to hyper').manipulators([
         map('caps_lock').toHyper().toIfAlone('escape')
     ]),
+
+    hyperLayer('a', 'hyper-a')
+        .manipulators({
+            b: toApp('Google Chrome'),
+            c: toApp('Intellij IDEA Ultimate'),
+            g: toApp('Tower'),
+            x: toApp('Warp'),
+            n: toApp('Obsidian'),
+            s: toApp('Slack'),
+            m: toApp('Music'),
+            e: toApp('Mail'),
+        }),
 
     rule('hyper hjkl to arrows').manipulators([
         map({key_code: 'h', modifiers: hyperModifiers}).to('left_arrow'),
