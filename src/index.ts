@@ -67,4 +67,13 @@ writeToProfile('seanwashbot', [
     rule('hold tab for control').manipulators([
         map({key_code: 'tab', modifiers: {optional: ["any"]}}).to('left_control').toIfAlone('tab'),
     ]),
+
+    // Retraining rules
+    // ----------------
+    // I've been having some wrist pain from rotating my wrists
+    // outward, specifically with my right wrist.
+    rule('disable right hand external rotating keys').manipulators([
+        map({key_code: 'return_or_enter', modifiers: {optional: ["any"]}}).toNone(),
+        map({key_code: 'delete_or_backspace', modifiers: {optional: ["any"]}}).toNone(),
+    ])
 ])
