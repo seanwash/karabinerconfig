@@ -1,3 +1,5 @@
+// https://github.com/evan-liu/karabiner.ts
+
 import {
     FromModifiers,
     hyperLayer,
@@ -17,25 +19,18 @@ writeToProfile('seanwashbot', [
         map('caps_lock').toHyper().toIfAlone('escape')
     ]),
 
-    hyperLayer('a', 'hyper-a')
-        .manipulators({
-            b: toApp('Google Chrome'),
-            c: toApp('Intellij IDEA Ultimate'),
-            g: toApp('Tower'),
-            x: toApp('Warp'),
-            n: toApp('Obsidian'),
-            s: toApp('Slack'),
-            m: toApp('Music'),
-            e: toApp('Mail'),
-        }),
-
-    rule('hyper hjkl to arrows').manipulators([
+    rule('hyper modifiers').manipulators([
         map({key_code: 'h', modifiers: hyperModifiers}).to('left_arrow'),
         map({key_code: 'j', modifiers: hyperModifiers}).to('down_arrow'),
         map({key_code: 'k', modifiers: hyperModifiers}).to('up_arrow'),
         map({key_code: 'l', modifiers: hyperModifiers}).to('right_arrow'),
         map({key_code: 'semicolon', modifiers: hyperModifiers}).to('return_or_enter'),
-        map({key_code: 'b', modifiers: hyperModifiers}).to('delete_or_backspace'),
+
+        map({key_code: 'b', modifiers: hyperModifiers}).toApp('Google Chrome'),
+        map({key_code: 'c', modifiers: hyperModifiers}).toApp('Intellij IDEA Ultimate'),
+        map({key_code: 'g', modifiers: hyperModifiers}).toApp('Tower'),
+        map({key_code: 'x', modifiers: hyperModifiers}).toApp('Warp'),
+        map({key_code: 'n', modifiers: hyperModifiers}).toApp('Obsidian'),
 
         map({key_code: 'r', modifiers: hyperModifiers}).to({
             key_code: 'r',
@@ -68,12 +63,7 @@ writeToProfile('seanwashbot', [
         map({key_code: 'tab', modifiers: {optional: ["any"]}}).to('left_control').toIfAlone('tab'),
     ]),
 
-    // Retraining rules
-    // ----------------
-    // I've been having some wrist pain from rotating my wrists
-    // outward, specifically with my right wrist.
-    rule('disable right hand external rotating keys').manipulators([
-        map({key_code: 'return_or_enter', modifiers: {optional: ["any"]}}).toNone(),
-        map({key_code: 'delete_or_backspace', modifiers: {optional: ["any"]}}).toNone(),
-    ])
+    rule('right option to right control').manipulators([
+        map({key_code: 'right_option', modifiers: {optional: ["any"]}}).to('right_control'),
+    ]),
 ])
