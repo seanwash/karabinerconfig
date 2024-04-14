@@ -26,7 +26,7 @@ writeToProfile('seanwashbot', [
         map({key_code: 'l', modifiers: hyperModifiers}).to('right_arrow'),
         map({key_code: 'semicolon', modifiers: hyperModifiers}).to('return_or_enter'),
 
-        map({key_code: 'b', modifiers: hyperModifiers}).toApp('Google Chrome'),
+        map({key_code: 'w', modifiers: hyperModifiers}).toApp('Google Chrome'),
         map({key_code: 'c', modifiers: hyperModifiers}).toApp('Intellij IDEA Ultimate'),
         map({key_code: 'g', modifiers: hyperModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperModifiers}).toApp('Warp'),
