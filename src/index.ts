@@ -3,16 +3,19 @@
 import {
     FromModifiers,
     hyperLayer,
-    map,
+    map, Modifier, ModifierKeyAlias, ModifierParam,
     rule,
-    toApp,
+    toApp, ToEvent,
     writeToProfile,
 } from 'karabiner.ts'
 
-const hyperModifiers: FromModifiers = {
+const hyperFromModifiers: FromModifiers = {
     mandatory: ['left_shift', 'left_command', 'left_control', 'left_option'],
-    // optional: ['any']
 }
+
+const hyperToModifiers: Modifier[] = [
+    'left_shift', 'left_command', 'left_control', 'left_option',
+]
 
 writeToProfile('seanwashbot', [
     rule('caps_lock to hyper').manipulators([
@@ -22,43 +25,43 @@ writeToProfile('seanwashbot', [
     ]),
 
     rule('hyper modifiers').manipulators([
-        map({key_code: 'h', modifiers: hyperModifiers}).to('left_arrow'),
-        map({key_code: 'j', modifiers: hyperModifiers}).to('down_arrow'),
-        map({key_code: 'k', modifiers: hyperModifiers}).to('up_arrow'),
-        map({key_code: 'l', modifiers: hyperModifiers}).to('right_arrow'),
-        map({key_code: 'n', modifiers: hyperModifiers}).to('delete_or_backspace'),
-        map({key_code: 'semicolon', modifiers: hyperModifiers}).to('return_or_enter'),
+        map({key_code: 'h', modifiers: hyperFromModifiers}).to('left_arrow'),
+        map({key_code: 'j', modifiers: hyperFromModifiers}).to('down_arrow'),
+        map({key_code: 'k', modifiers: hyperFromModifiers}).to('up_arrow'),
+        map({key_code: 'l', modifiers: hyperFromModifiers}).to('right_arrow'),
+        map({key_code: 'n', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
+        map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
 
-        map({key_code: 'w', modifiers: hyperModifiers}).toApp('Google Chrome'),
-        map({key_code: 'c', modifiers: hyperModifiers}).toApp('Intellij IDEA Ultimate'),
-        map({key_code: 'g', modifiers: hyperModifiers}).toApp('Tower'),
-        map({key_code: 'x', modifiers: hyperModifiers}).toApp('Warp'),
-        map({key_code: 'b', modifiers: hyperModifiers}).toApp('Obsidian'),
+        map({key_code: 'w', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
+        map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
+        map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
+        map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
+        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Obsidian'),
 
-        map({key_code: 'r', modifiers: hyperModifiers}).to({
+        map({key_code: 'r', modifiers: hyperFromModifiers}).to({
             key_code: 'r',
             modifiers: ['left_shift', 'left_control'],
         }),
 
         map({key_code: 'f13'}).to({
             key_code: 'spacebar',
-            modifiers: ['left_shift', 'left_command', 'left_control', 'left_option']
+            modifiers: hyperToModifiers,
         }),
 
         // ->
-        map({key_code: 'hyphen', modifiers: hyperModifiers}).to('hyphen').to({
+        map({key_code: 'hyphen', modifiers: hyperFromModifiers}).to('hyphen').to({
             key_code: 'period',
             modifiers: ['left_shift']
         }),
 
         // =>
-        map({key_code: 'equal_sign', modifiers: hyperModifiers}).to('equal_sign').to({
+        map({key_code: 'equal_sign', modifiers: hyperFromModifiers}).to('equal_sign').to({
             key_code: 'period',
             modifiers: ['left_shift']
         }),
 
         // ()
-        map({key_code: '0', modifiers: hyperModifiers}).to({
+        map({key_code: '0', modifiers: hyperFromModifiers}).to({
             key_code: '9',
             modifiers: ['left_shift']
         }).to({
