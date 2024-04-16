@@ -40,6 +40,11 @@ writeToProfile('seanwashbot', [
             modifiers: ['left_shift', 'left_control'],
         }),
 
+        map({key_code: 'f13'}).to({
+            key_code: 'spacebar',
+            modifiers: ['left_shift', 'left_command', 'left_control', 'left_option']
+        }),
+
         // ->
         map({key_code: 'hyphen', modifiers: hyperModifiers}).to('hyphen').to({
             key_code: 'period',
