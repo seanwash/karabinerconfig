@@ -11,12 +11,14 @@ import {
 
 const hyperModifiers: FromModifiers = {
     mandatory: ['left_shift', 'left_command', 'left_control', 'left_option'],
-    optional: ['any']
+    // optional: ['any']
 }
 
 writeToProfile('seanwashbot', [
     rule('caps_lock to hyper').manipulators([
-        map('caps_lock').toHyper().toIfAlone('escape')
+        // Without optional modifiers, holding a modifier (e.g. command) before holding
+        // caps_lock would cause caps_lock to be triggered instead of hyper.
+        map({key_code: 'caps_lock', modifiers: {optional: ["any"]}}).toHyper().toIfAlone('escape'),
     ]),
 
     rule('hyper modifiers').manipulators([
@@ -24,13 +26,14 @@ writeToProfile('seanwashbot', [
         map({key_code: 'j', modifiers: hyperModifiers}).to('down_arrow'),
         map({key_code: 'k', modifiers: hyperModifiers}).to('up_arrow'),
         map({key_code: 'l', modifiers: hyperModifiers}).to('right_arrow'),
+        map({key_code: 'n', modifiers: hyperModifiers}).to('delete_or_backspace'),
         map({key_code: 'semicolon', modifiers: hyperModifiers}).to('return_or_enter'),
 
         map({key_code: 'w', modifiers: hyperModifiers}).toApp('Google Chrome'),
         map({key_code: 'c', modifiers: hyperModifiers}).toApp('Intellij IDEA Ultimate'),
         map({key_code: 'g', modifiers: hyperModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperModifiers}).toApp('Warp'),
-        map({key_code: 'n', modifiers: hyperModifiers}).toApp('Obsidian'),
+        map({key_code: 'b', modifiers: hyperModifiers}).toApp('Obsidian'),
 
         map({key_code: 'r', modifiers: hyperModifiers}).to({
             key_code: 'r',
