@@ -2,10 +2,8 @@
 
 import {
     FromModifiers,
-    hyperLayer,
-    map, Modifier, ModifierKeyAlias, ModifierParam,
+    map, Modifier,
     rule,
-    toApp, ToEvent,
     writeToProfile,
 } from 'karabiner.ts'
 
@@ -25,18 +23,9 @@ writeToProfile('seanwashbot', [
     ]),
 
     rule('hyper modifiers').manipulators([
-        map({key_code: 'h', modifiers: hyperFromModifiers}).to('left_arrow'),
-        map({key_code: 'j', modifiers: hyperFromModifiers}).to('down_arrow'),
-        map({key_code: 'k', modifiers: hyperFromModifiers}).to('up_arrow'),
-        map({key_code: 'l', modifiers: hyperFromModifiers}).to('right_arrow'),
-        map({key_code: 'n', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
-        map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
-
-        map({key_code: 'w', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
-        map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
-        map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
-        map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
-        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+        ...hyperVimArrowKeyMappings(),
+        ...rsiMappings(),
+        ...appMappings(),
 
         map({key_code: 'r', modifiers: hyperFromModifiers}).to({
             key_code: 'r',
@@ -78,3 +67,35 @@ writeToProfile('seanwashbot', [
         map({key_code: 'right_option', modifiers: {optional: ["any"]}}).to('right_control'),
     ]),
 ])
+
+function hyperVimArrowKeyMappings() {
+    return [
+        map({key_code: 'h', modifiers: hyperFromModifiers}).to('left_arrow'),
+        map({key_code: 'j', modifiers: hyperFromModifiers}).to('down_arrow'),
+        map({key_code: 'k', modifiers: hyperFromModifiers}).to('up_arrow'),
+        map({key_code: 'l', modifiers: hyperFromModifiers}).to('right_arrow'),
+    ]
+}
+
+/**
+ * Returns mappings that lead to wrist pain for me personally.
+ */
+function rsiMappings() {
+    return [
+        map({key_code: 'n', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
+        map({key_code: 'delete_or_backspace'}).toNone(),
+
+        map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
+        map({key_code: 'return_or_enter'}).toNone(),
+    ]
+}
+
+function appMappings() {
+    return [
+        map({key_code: 'w', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
+        map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
+        map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
+        map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
+        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+    ]
+}
