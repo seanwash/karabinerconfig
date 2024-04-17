@@ -83,12 +83,7 @@ function hyperVimArrowKeyMappings() {
 function rsiMappings() {
     return [
         map({key_code: 'n', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
-        map({key_code: 'delete_or_backspace'}).toNone(),
-
         map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
-        map({key_code: 'return_or_enter'}).toNone(),
-
-        map({key_code: 'escape'}).toNone(),
     ]
 }
 
