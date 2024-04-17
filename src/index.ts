@@ -87,6 +87,8 @@ function rsiMappings() {
 
         map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
         map({key_code: 'return_or_enter'}).toNone(),
+
+        map({key_code: 'escape'}).toNone(),
     ]
 }
 
