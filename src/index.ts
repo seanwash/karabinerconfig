@@ -94,5 +94,6 @@ function appMappings() {
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
         map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+        map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
     ]
 }
