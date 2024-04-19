@@ -87,13 +87,20 @@ function rsiMappings() {
     ]
 }
 
+/**
+ * Returns mappings that I use to quick-launch & focus applications.
+ *
+ * Use `find /Applications -iname '*NAME*.app'` to find the name
+ * of an application.
+ */
 function appMappings() {
     return [
-        map({key_code: 'w', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
+        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
         map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
+        map({key_code: 'z', modifiers: hyperFromModifiers}).toApp('Zed'),
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
-        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+        map({key_code: 'o', modifiers: hyperFromModifiers}).toApp('Obsidian'),
         map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
         map({key_code: 'a', modifiers: hyperFromModifiers}).toApp('ChatGPT'),
     ]
