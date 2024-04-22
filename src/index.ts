@@ -95,7 +95,7 @@ function rsiMappings() {
  */
 function appMappings() {
     return [
-        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
+        map({key_code: 'w', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
         map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
         map({key_code: 'z', modifiers: hyperFromModifiers}).toApp('Zed'),
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
