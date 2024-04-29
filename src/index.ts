@@ -82,8 +82,8 @@ function hyperVimArrowKeyMappings() {
  */
 function rsiMappings() {
     return [
-        map({key_code: 'n', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
         map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
+        map({key_code: 'quote', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
     ]
 }
 
@@ -100,8 +100,8 @@ function appMappings() {
         map({key_code: 'z', modifiers: hyperFromModifiers}).toApp('Zed'),
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
-        map({key_code: 'o', modifiers: hyperFromModifiers}).toApp('Notes'),
         map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
         map({key_code: 'a', modifiers: hyperFromModifiers}).toApp('ChatGPT'),
+        map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Notes'),
     ]
 }
