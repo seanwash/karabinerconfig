@@ -102,6 +102,6 @@ function appMappings() {
         map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
         map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
         map({key_code: 'a', modifiers: hyperFromModifiers}).toApp('ChatGPT'),
-        map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Notes'),
+        map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Obsidian'),
     ]
 }
