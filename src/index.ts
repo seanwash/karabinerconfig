@@ -95,7 +95,7 @@ function rsiMappings() {
  */
 function appMappings() {
     return [
-        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Google Chrome'),
+        map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Arc'),
         map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
         map({key_code: 'z', modifiers: hyperFromModifiers}).toApp('Zed'),
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
@@ -103,5 +103,7 @@ function appMappings() {
         map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
         map({key_code: 'a', modifiers: hyperFromModifiers}).toApp('ChatGPT'),
         map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+        map({key_code: 'y', modifiers: hyperFromModifiers}).to$('~/go/bin/jn'),
+        map({key_code: 'u', modifiers: hyperFromModifiers}).to$('~/go/bin/jn journal'),
     ]
 }
