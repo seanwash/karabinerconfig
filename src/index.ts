@@ -62,10 +62,6 @@ writeToProfile('seanwashbot', [
     rule('hold tab for control').manipulators([
         map({key_code: 'tab', modifiers: {optional: ["any"]}}).to('left_control').toIfAlone('tab'),
     ]),
-
-    rule('right option to right control').manipulators([
-        map({key_code: 'right_option', modifiers: {optional: ["any"]}}).to('right_control'),
-    ]),
 ])
 
 function hyperVimArrowKeyMappings() {
@@ -81,10 +77,7 @@ function hyperVimArrowKeyMappings() {
  * Returns mappings that lead to wrist pain for me personally.
  */
 function rsiMappings() {
-    return [
-        map({key_code: 'semicolon', modifiers: hyperFromModifiers}).to('return_or_enter'),
-        map({key_code: 'quote', modifiers: hyperFromModifiers}).to('delete_or_backspace'),
-    ]
+    return []
 }
 
 /**
@@ -96,13 +89,14 @@ function rsiMappings() {
 function appMappings() {
     return [
         map({key_code: 'b', modifiers: hyperFromModifiers}).toApp('Arc'),
+        map({key_code: 's', modifiers: hyperFromModifiers}).toApp('Slack'),
         map({key_code: 'c', modifiers: hyperFromModifiers}).toApp('Intellij IDEA Ultimate'),
         map({key_code: 'z', modifiers: hyperFromModifiers}).toApp('Zed'),
         map({key_code: 'g', modifiers: hyperFromModifiers}).toApp('Tower'),
         map({key_code: 'x', modifiers: hyperFromModifiers}).toApp('Warp'),
         map({key_code: 't', modifiers: hyperFromModifiers}).toApp('Things3'),
         map({key_code: 'a', modifiers: hyperFromModifiers}).toApp('ChatGPT'),
-        map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Obsidian'),
+        map({key_code: 'n', modifiers: hyperFromModifiers}).toApp('Notes'),
         map({key_code: 'y', modifiers: hyperFromModifiers}).to$('~/go/bin/jn'),
         map({key_code: 'u', modifiers: hyperFromModifiers}).to$('~/go/bin/jn journal'),
     ]
