@@ -23,6 +23,10 @@ writeToProfile('seanwashbot', [
 		...codingShortcutMappings(),
 	]),
 
+	rule('right option to control').manipulators([
+		map({ key_code: 'right_option' }).to('right_control'),
+	]),
+
 	rule('hold tab for control').manipulators([
 		map({ key_code: 'tab', modifiers: { optional: ['any'] } })
 			.to('left_control')
@@ -49,14 +53,13 @@ function rsiMappings() {
 // Use `find /Applications -iname '*NAME*.app'` to find the name of an application.
 function appMappings() {
 	return [
-		map({ key_code: 'b', modifiers: hyperFromModifiers }).toApp('Safari'),
+		map({ key_code: 'b', modifiers: hyperFromModifiers }).toApp('Google Chrome'),
 		map({ key_code: 'c', modifiers: hyperFromModifiers }).toApp('Visual Studio Code'),
-		map({ key_code: 'z', modifiers: hyperFromModifiers }).toApp('Windsurf'),
-		map({ key_code: 'w', modifiers: hyperFromModifiers }).toApp('TablePlus'),
+		map({ key_code: 'x', modifiers: hyperFromModifiers }).toApp('Ghostty'),
+		map({ key_code: 'z', modifiers: hyperFromModifiers }).toApp('TablePlus'),
 		map({ key_code: 'n', modifiers: hyperFromModifiers }).toApp('Notes'),
 		map({ key_code: 's', modifiers: hyperFromModifiers }).toApp('Slack'),
 		map({ key_code: 'g', modifiers: hyperFromModifiers }).toApp('Tower'),
-		map({ key_code: 'x', modifiers: hyperFromModifiers }).toApp('Ghostty'),
 		map({ key_code: 't', modifiers: hyperFromModifiers }).toApp('Things3'),
 		map({ key_code: 'a', modifiers: hyperFromModifiers }).toApp('ChatGpt'),
 	];
