@@ -62,6 +62,7 @@ function appMappings() {
 		map({ key_code: 'g', modifiers: hyperFromModifiers }).toApp('Tower'),
 		map({ key_code: 'z', modifiers: hyperFromModifiers }).toApp('Things3'),
 		map({ key_code: 'a', modifiers: hyperFromModifiers }).toApp('ChatGptWeb'),
+		map({ key_code: 'w', modifiers: hyperFromModifiers }).toApp('Toggl Track'),
 	];
 }
 
