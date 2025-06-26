@@ -19,12 +19,8 @@ writeToProfile('seanwashbot', [
 		...hyperVimArrowKeyMappings(),
 		...rsiMappings(),
 		...appMappings(),
-		...appleShortcutMappings(),
 		...codingShortcutMappings(),
-	]),
-
-	rule('right option to control').manipulators([
-		map({ key_code: 'right_option' }).to('right_control'),
+		//...appleShortcutMappings(),
 	]),
 
 	rule('hold tab for control').manipulators([
@@ -53,16 +49,14 @@ function rsiMappings() {
 // Use `find /Applications -iname '*NAME*.app'` to find the name of an application.
 function appMappings() {
 	return [
+		map({ key_code: 'a', modifiers: hyperFromModifiers }).toApp('Claude'),
 		map({ key_code: 'b', modifiers: hyperFromModifiers }).toApp('Google Chrome'),
-		map({ key_code: 'c', modifiers: hyperFromModifiers }).toApp('Visual Studio Code'),
-		map({ key_code: 'x', modifiers: hyperFromModifiers }).toApp('Warp'),
-		map({ key_code: 't', modifiers: hyperFromModifiers }).toApp('TablePlus'),
-		map({ key_code: 'n', modifiers: hyperFromModifiers }).toApp('Notes'),
-		map({ key_code: 's', modifiers: hyperFromModifiers }).toApp('Slack'),
+		map({ key_code: 'c', modifiers: hyperFromModifiers }).toApp('Zed'),
 		map({ key_code: 'g', modifiers: hyperFromModifiers }).toApp('Tower'),
-		map({ key_code: 'z', modifiers: hyperFromModifiers }).toApp('Things3'),
-		map({ key_code: 'a', modifiers: hyperFromModifiers }).toApp('ChatGptWeb'),
-		map({ key_code: 'w', modifiers: hyperFromModifiers }).toApp('Toggl Track'),
+		map({ key_code: 'n', modifiers: hyperFromModifiers }).toApp('Notion'),
+		map({ key_code: 's', modifiers: hyperFromModifiers }).toApp('Slack'),
+		map({ key_code: 't', modifiers: hyperFromModifiers }).toApp('TablePlus'),
+		map({ key_code: 'x', modifiers: hyperFromModifiers }).toApp('Warp'),
 	];
 }
 
@@ -74,7 +68,7 @@ function appleShortcutMappings() {
 
 function codingShortcutMappings() {
 	return [
-		// ->
+		// PHP: ->
 		map({ key_code: 'hyphen', modifiers: hyperFromModifiers })
 			.to('hyphen')
 			.to({
@@ -82,7 +76,7 @@ function codingShortcutMappings() {
 				modifiers: ['left_shift'],
 			}),
 
-		// =>
+		// PHP: =>
 		map({ key_code: 'equal_sign', modifiers: hyperFromModifiers })
 			.to('equal_sign')
 			.to({
